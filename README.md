@@ -1,4 +1,5 @@
 ## Assignment-1
+Chloe Hacker
 Assignment 1 due Monday January 29, 2018
 
 ### 1. Get the data files
@@ -15,7 +16,7 @@ Here is the code I used for problem 1.
 ### II. Clean the data
 Use ```grep```, ```uniq```, ```sed```. Check that all of the species names are spelled correctly in the file ```iris-data-dirty.csv```. Also check for missing values stored as NA. Create a new file where mispelled names are replaced with the correct values, and lines with NA are excluded, and save it as ```iris-data-clean.csv```. Use ```cut```, ```sort``` and ```uniq``` to list the number of data values there are for each species in the new cleaned data file.
 
-Here is the code I used to creat the ```iris-data-clean.csv```. 
+Here is the code I used to create the ```iris-data-clean.csv```. 
 
 ```
 > sed 's/Iris-setsa/Iris-setosa/g' 1assignment.txt > iris-data-clean.csv
@@ -32,6 +33,14 @@ And got the counts as ```Iris-setosa``` = ```49```, ```Iris-versicolor``` = ```4
 
 ### III. Summarize sequence data file
 Find how many lines in the data file ```test.fastq.gz``` start with "TGCAG" and end with "GAG"
+
+The code I used for this question is as follows.
+
+```
+> gunzip test.fastq.gz
+> grep -c '^TGCAG.*GAG$' test.fastq
+```
+And this code output ```44```.
 
 ### IV. Summarize sequence data file
 Write a ```for-loop``` to separate the reads from the file ```test.fastq.gz``` based on the taxon name in the label, and write the reads to separately named files in the new directory called ```sorted_reads/```. The answer to this question will require more than a single line. See the lecture materials about using variables in for-loops. This will also be tricky because each read in the data file spans four lines (this is a standard genetic sequence file format), so for each read that you correctly identify you must grab the line with the sequence data below it, as well as the repeat label after that, and the quality information line after that. For a hint, see additional options for the ```grep``` command that can be used to select multiple lines.
