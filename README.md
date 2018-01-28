@@ -15,6 +15,21 @@ Here is the code I used for problem 1.
 ### II. Clean the data
 Use ```grep```, ```uniq```, ```sed```. Check that all of the species names are spelled correctly in the file ```iris-data-dirty.csv```. Also check for missing values stored as NA. Create a new file where mispelled names are replaced with the correct values, and lines with NA are excluded, and save it as ```iris-data-clean.csv```. Use ```cut```, ```sort``` and ```uniq``` to list the number of data values there are for each species in the new cleaned data file.
 
+Here is the code I used to creat the ```iris-data-clean.csv```. 
+
+```
+> sed 's/Iris-setsa/Iris-setosa/g' 1assignment.txt > iris-data-clean.csv
+> sed 's/Iris-versicolour/Iris-versicolor/g' 1assignment.txt > iris-data-clean.csv
+> sed '/NA/d' 1assignment.txt > iris-data-clean.csv
+```
+This is the code I used to list the number of data values for each species in the cleaned data file.
+```
+> grep Iris-setosa iris-data-clean.csv | sort| wc -l
+> grep Iris-versicolor iris-data-clean.csv | sort| wc -l
+> grep Iris-virginica iris-data-clean.csv | sort| wc -l
+```
+And got the counts as ```Iris-setosa``` = ```49```, ```Iris-versicolor``` = ```47```, and ```Iris-virginica``` = ```50```.
+
 ### III. Summarize sequence data file
 Find how many lines in the data file ```test.fastq.gz``` start with "TGCAG" and end with "GAG"
 
